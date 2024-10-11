@@ -11,6 +11,9 @@ async function sortHackerNewsArticles() {
   await page.goto("https://news.ycombinator.com/newest");
 }
 
+  //get the list of elements
+  const listItems = await page.locator('li').all();
+
 (async () => {
   await sortHackerNewsArticles();
 })();
