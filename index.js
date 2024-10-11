@@ -11,8 +11,8 @@ async function sortHackerNewsArticles() {
   await page.goto("https://news.ycombinator.com/newest");
 }
 
-  //get the list of elements
-  const listItems = await page.locator('li').all();
+  //get all tables rows
+  const rows = await page.$$('table tbody tr');
 
 (async () => {
   await sortHackerNewsArticles();
