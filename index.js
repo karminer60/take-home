@@ -11,8 +11,11 @@ async function sortHackerNewsArticles() {
   await page.goto("https://news.ycombinator.com/newest");
 }
 
-  //get all tables rows
-  const rows = await page.$$('table tbody tr');
+  //get all table's rows
+  const rows = await page.$$('.age');
+
+  //extract the attribute you need to check is sorted in the table items
+
 
 (async () => {
   await sortHackerNewsArticles();
