@@ -11,10 +11,8 @@ async function sortHackerNewsArticles() {
   await page.goto("https://news.ycombinator.com/newest");
 }
 
-  //get all table's rows
+  //get all table's age attributes
   const rows = await page.$$('.age');
-
-  //extract the attribute you need to check is sorted in the table items
 
 
 (async () => {
