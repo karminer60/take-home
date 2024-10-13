@@ -12,9 +12,10 @@ async function sortHackerNewsArticles() {
 }
 
   //get all table's age attributes
-  const rows = await page.$$('.age');
+  const listItems = await page.$$('.age')
 
-
+  //extract the title content of each list item
+  const titleValues = await Promise.all(listItems.map(async(item) => await item.textContent()));
 (async () => {
   await sortHackerNewsArticles();
 })();
