@@ -22,7 +22,7 @@ describe("Hacker News Articles", () => {
   it("are sorted", async () => {
     const page = await context.newPage();
   
-    // go to Hacker News
+    //go to Hacker News
     await page.goto("https://news.ycombinator.com/newest");
   
     //get all table's age attributes
@@ -31,10 +31,10 @@ describe("Hacker News Articles", () => {
     //extract the title content of each list item
     const titles = await Promise.all(listItems.map(async(item) => await item.getAttribute('title')));
   
-    //Create a copy of the list, sorted
+    //create a copy of the list, sorted
     const sortedTitles = titles.toSorted().reverse();
   
-    //Compare tiles to sortedTitles
+    //compare titles to sortedTitles
     assert.deepEqual(titles, sortedTitles);
   });
 });
