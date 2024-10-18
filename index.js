@@ -27,7 +27,7 @@ describe("Hacker News Articles", () => {
     let listItems = await page.$$('.age')
     const titles = await Promise.all(listItems.map(async(item) => await item.getAttribute('title')));
     while(titles.length < 100){
-      // await page.$$('.morelink').click();
+      await page.getByText('More').click();
       //get all table's age attributes
       listItems = await page.$$('.age')
   
