@@ -24,15 +24,13 @@ describe("Hacker News Articles", () => {
   
     //go to Hacker News
     await page.goto("https://news.ycombinator.com/newest");
-    let listItems = await page.$$('.age')
-    const titles = await Promise.all(listItems.map(async(item) => await item.getAttribute('title')));
+    //create a list of title content for age elements
+    const titles = await page.locator('.age').evaluateAll((items) => items.map((item) => item.getAttribute('title')));
     while(titles.length < 100){
-      await page.getByText('More').click();
-      //get all table's age attributes
-      listItems = await page.$$('.age')
-  
-      //extract the title content of each list item
-      titles.push(...await Promise.all(listItems.map(async(item) => await item.getAttribute('title'))));
+      await page.locator('.morelink').click();
+      
+      //extend list of title content for age elements
+      titles.push(...await page.locator('.age').evaluateAll((items) => items.map((item) => item.getAttribute('title'))));
     }
   
     //create a copy of the list, sorted
