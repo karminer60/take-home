@@ -1,4 +1,4 @@
-// EDIT THIS FILE TO COMPLETE ASSIGNMENT QUESTION 1
+// run with: node --test index.js
 const { chromium } = require("playwright");
 const assert = require('node:assert/strict');
 const { describe, it, before, after, beforeEach, afterEach } = require("node:test");
